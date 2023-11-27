@@ -6,6 +6,8 @@ output: github_document
 ---
 # Setup and Cleaning
 
+All data originated from the two provided excel documents.
+
 ```{r setup, include=FALSE}
 # Libraries
 library(readxl)
@@ -21,6 +23,8 @@ data_formulas <- read_excel("biomass_equation calcs.xlsx",
 
 data <- read_csv("CMR Trash Removal.csv")
 ```
+
+Formulas came from the biomass_equation calcs excel sheet. Previously calculated by Kea Payton.
 
 ```{r cleaning}
 # Clean formulas sheet
@@ -67,9 +71,13 @@ data <- data %>%
 # Check to ensure all taxa are accounted for - these are the ones missing Biomass Calcs
 data$Subcode[!data$Subcode %in% equations$Taxa]
 ```
+Future iterations may want to check the above taxa for any available biomass data.
+
 ***
 
 # Functions
+
+The following are functions used to calculate biomass data with constants from the biomass equation calculation datasheet and inputs from measured taxa from the CMR lab.
 
 ```{r lm function}
 # Linear model function
@@ -187,6 +195,8 @@ biomass_func(id, model)
 ***
 
 # For loop for dataset
+
+All data was calculated using the created functions and then exported to a csv file for future use.
 
 ```{r process data}
 # For loop to run throw rows in data

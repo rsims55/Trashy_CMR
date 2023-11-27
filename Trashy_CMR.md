@@ -5,6 +5,11 @@ Randi Sims
 
 # Setup and Cleaning
 
+All data originated from the two provided excel documents.
+
+Formulas came from the biomass_equation calcs excel sheet. Previously
+calculated by Kea Payton.
+
 ``` r
 # Clean formulas sheet
 data_formulas <- data_formulas %>% 
@@ -54,9 +59,16 @@ data$Subcode[!data$Subcode %in% equations$Taxa]
     ##  [1] "CHIT" "DICH" "DICH" "DROM" "CHIT" "CHIT" "CRAB" "CRAB" "ANME" "CHIT"
     ## [11] "DROM" "PSP"  "AGRS" "PSP"  "MSPP" "DROM" "DROM" "OSTR" "PSP"  "AXDE"
 
+Future iterations may want to check the above taxa for any available
+biomass data.
+
 ------------------------------------------------------------------------
 
 # Functions
+
+The following are functions used to calculate biomass data with
+constants from the biomass equation calculation datasheet and inputs
+from measured taxa from the CMR lab.
 
 ``` r
 # Linear model function
@@ -184,6 +196,9 @@ biomass_func(id, model)
 ------------------------------------------------------------------------
 
 # For loop for dataset
+
+All data was calculated using the created functions and then exported to
+a csv file for future use.
 
 ``` r
 # For loop to run throw rows in data
